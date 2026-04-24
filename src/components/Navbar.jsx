@@ -83,7 +83,7 @@ export default function Navbar() {
             ) : (
               <Link 
                 href="/login"
-                className="px-5 py-2.5 rounded-lg bg-primary text-white font-bold hover:bg-secondary transition-colors shadow-md"
+                className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:from-secondary hover:to-primary transition-all shadow-md"
               >
                 Login
               </Link>

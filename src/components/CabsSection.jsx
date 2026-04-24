@@ -10,7 +10,7 @@ export default function CabsSection() {
           <p className="text-lg mb-6 text-gray-700">
             All over Tamil Nadu & Kerala. Available 24x7. Enjoy smooth, comfortable rides at affordable prices, with guaranteed on-time pickup and drop-off.
           </p>
-          <a href="tel:8300849109" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-secondary transition-colors shadow-lg">
+          <a href="tel:8300849109" className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full font-bold text-lg hover:from-secondary hover:to-primary transition-all shadow-lg">
             <Car className="w-5 h-5" />
             Book Now
           </a>

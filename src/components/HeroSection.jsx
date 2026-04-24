@@ -10,10 +10,10 @@ export default function HeroSection() {
           Siva is a trusted and authorized service provider offering a range of essential services to meet your diverse needs.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link href="/services" className="bg-primary text-white px-8 py-3 rounded-full font-bold text-lg hover:bg-secondary transition-colors shadow-lg">
+          <Link href="/services" className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full font-bold text-lg hover:from-secondary hover:to-primary transition-all shadow-lg">
             Explore Services
           </Link>
-          <a href="#contact" className="bg-white border-2 border-primary text-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-primary hover:text-white transition-colors shadow-lg">
+          <a href="#contact" className="bg-white border-2 border-primary text-primary px-8 py-3 rounded-full font-bold text-lg hover:bg-gradient-to-r hover:from-primary hover:to-secondary hover:text-white hover:border-transparent transition-all shadow-lg">
             Get In Touch
           </a>
         </div>

@@ -38,7 +38,7 @@ export default function ContactSection() {
           
           <div className="space-y-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center flex-shrink-0">
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
@@ -47,7 +47,7 @@ export default function ContactSection() {
               </div>
             </div>
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center flex-shrink-0">
                 <Phone className="w-6 h-6" />
               </div>
               <div>
@@ -84,7 +84,7 @@ export default function ContactSection() {
               <label className="block text-sm font-bold text-black mb-1">Message</label>
               <textarea rows={3} className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary outline-none bg-white text-black" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}></textarea>
             </div>
-            <button type="submit" disabled={submitStatus === "loading"} className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-secondary transition-colors flex justify-center items-center gap-2">
+            <button type="submit" disabled={submitStatus === "loading"} className="w-full bg-gradient-to-r from-primary to-secondary text-white font-bold py-3 rounded-lg hover:from-secondary hover:to-primary transition-all flex justify-center items-center gap-2">
               {submitStatus === "loading" ? "Sending..." : "Submit Request"}
               {!submitStatus && <ChevronRight className="w-5 h-5" />}
             </button>
