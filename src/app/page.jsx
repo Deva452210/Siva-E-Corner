@@ -125,9 +125,9 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">E-Services</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth md:grid md:grid-cols-4 gap-4 md:gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0 mb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {/* Card 1 */}
-              <Link href="/services/1" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
+              <Link href="/services/1" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#0D4D20] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     FIRST GRADUATE CERTIFICATE
@@ -143,7 +143,7 @@ export default function Home() {
               </Link>
 
               {/* Card 2 */}
-              <Link href="/services/2" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
+              <Link href="/services/2" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#4CAF50] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-xl uppercase leading-tight z-10 drop-shadow-md">
                     INDIRA GANDHI OLD AGE PENSION SHEME
@@ -159,7 +159,7 @@ export default function Home() {
               </Link>
 
               {/* Card 3 */}
-              <Link href="/services/3" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
+              <Link href="/services/3" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#9c27b0] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     INCOME CERTIFICATE
@@ -175,7 +175,7 @@ export default function Home() {
               </Link>
 
               {/* Card 4 */}
-              <Link href="/services/4" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
+              <Link href="/services/4" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-100 flex flex-col group bg-gray-50 cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#111111] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     DESERTED WOMAN CERTIFICATE
@@ -189,6 +189,13 @@ export default function Home() {
                   <p className="text-xs text-gray-500 font-semibold mt-auto">English</p>
                 </div>
               </Link>
+            </div>
+
+            <div className="flex justify-center mb-8 md:hidden">
+              <div className="flex items-center gap-2 text-gray-400 text-sm animate-pulse">
+                <span>Swipe for more</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
             </div>
 
             <div className="text-center">
@@ -230,9 +237,9 @@ export default function Home() {
               <h2 className="text-2xl md:text-3xl font-bold text-black mb-4">Card Services</h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+            <div className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth md:grid md:grid-cols-4 gap-4 md:gap-6 pb-4 -mx-4 px-4 md:mx-0 md:px-0 mb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {/* Card 1 */}
-              <Link href="/services" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
+              <Link href="/services" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#E65100] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     PAN CARD
@@ -248,7 +255,7 @@ export default function Home() {
               </Link>
 
               {/* Card 2 */}
-              <Link href="/services" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
+              <Link href="/services" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#1565C0] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     VOTER ID CARD
@@ -264,7 +271,7 @@ export default function Home() {
               </Link>
 
               {/* Card 3 */}
-              <Link href="/services" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
+              <Link href="/services" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#C62828] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     AADHAAR CARD
@@ -280,7 +287,7 @@ export default function Home() {
               </Link>
 
               {/* Card 4 */}
-              <Link href="/services" className="rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
+              <Link href="/services" className="w-[75vw] min-w-[75vw] sm:min-w-[45vw] md:min-w-0 md:w-auto flex-shrink-0 snap-center snap-always rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 border border-gray-200 flex flex-col group bg-white cursor-pointer">
                 <div className="h-40 md:h-48 bg-[#2E7D32] flex items-center p-6 relative overflow-hidden">
                   <h3 className="text-white font-black text-2xl uppercase leading-tight z-10 drop-shadow-md">
                     SMART CARD
@@ -294,6 +301,13 @@ export default function Home() {
                   <p className="text-xs text-gray-500 font-semibold mt-auto">English</p>
                 </div>
               </Link>
+            </div>
+
+            <div className="flex justify-center mb-8 md:hidden">
+              <div className="flex items-center gap-2 text-gray-400 text-sm animate-pulse">
+                <span>Swipe for more</span>
+                <ChevronRight className="w-4 h-4" />
+              </div>
             </div>
 
             <div className="text-center">
