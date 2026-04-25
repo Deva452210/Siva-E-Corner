@@ -1,14 +1,30 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import useSWR from "swr";
+import { useSearchParams } from "next/navigation";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
 const categories = ["E-Service", "Card Service", "Bank Service"];
 
 export default function ServicesTabs({ initialServices }) {
-  const [activeTab, setActiveTab] = useState("E-Service");
+  const searchParams = useSearchParams();
+  const initialCategory = searchParams.get("category");
+
+  const [activeTab, setActiveTab] = useState(() => {
+    if (initialCategory && categories.includes(initialCategory)) {
+      return initialCategory;
+    }
+    return "E-Service";
+  });
+
+  useEffect(() => {
+    const category = searchParams.get("category");
+    if (category && categories.includes(category)) {
+      setActiveTab(category);
+    }
+  }, [searchParams]);
 
   // useSWR will instantly return initialServices, then fetch in the background
   const { data: services } = useSWR("/api/services", fetcher, {

@@ -7,11 +7,15 @@
 
 @theme inline {
   --color-primary: #002AD2;
+  --color-primary-gradient-start: #001D91;
+  --color-primary-gradient-end: #00092B;
   --color-secondary: #00092B;
   --color-accent: #D4AF37;
   --color-emerald: #50C878;
   --color-peacock-light: #E0E7FF;
   --color-peacock-dark: #00092B;
+  
+  --background-image-primary-gradient: linear-gradient(to right, var(--color-primary-gradient-start), var(--color-primary-gradient-end));
 
   --color-background: var(--background);
   --color-foreground: var(--foreground);

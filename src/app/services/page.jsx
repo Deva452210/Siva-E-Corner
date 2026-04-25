@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ServicesTabs from "@/components/ServicesTabs";
 import { fetchServicesData } from "@/lib/googleSheets";
+import { Suspense } from "react";
 
 // Revalidate this page every 60 seconds so it reflects Google Sheet changes quickly
 export const revalidate = 60;
@@ -19,7 +20,9 @@ export default async function ServicesPage() {
             <h1 className="text-4xl font-bold text-black mb-6">Services</h1>
           </div>
 
-          <ServicesTabs initialServices={servicesData} />
+          <Suspense fallback={<div className="py-20 text-center text-gray-500">Loading services...</div>}>
+            <ServicesTabs initialServices={servicesData} />
+          </Suspense>
           
         </div>
       </main>

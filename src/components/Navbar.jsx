@@ -27,50 +27,61 @@ export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md text-black border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex-shrink-0 flex items-center gap-2">
-              <span className="font-bold text-2xl tracking-wider text-primary">SIVA</span>
-              <span className="font-semibold text-xl text-black">E-Corner</span>
+        <div className="flex items-center justify-between h-16">
+          <div className="flex items-center md:hidden">
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="inline-flex items-center justify-center p-2 -ml-2 rounded-md text-black hover:text-primary focus:outline-none"
+            >
+              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
+          </div>
+
+          <div className="flex-1 flex justify-center md:justify-start">
+            <Link href="/" className="flex-shrink-0 flex items-center gap-1 sm:gap-2">
+              <span className="font-bold text-xl sm:text-2xl tracking-wider text-primary">SIVA</span>
+              <span className="font-semibold text-lg sm:text-xl text-black">E-Corner</span>
             </Link>
           </div>
-          
-          <div className="hidden md:flex md:items-center md:space-x-8">
+
+          <div className="hidden md:flex md:items-center md:space-x-8 md:mr-8">
             <Link href="/services" className="hover:text-primary transition-colors font-bold">Services</Link>
             <Link href="/#certificates" className="hover:text-primary transition-colors font-bold">Certificates</Link>
-            <Link href="/#cabs" className="hover:text-primary transition-colors font-bold">SIVA Cabs</Link>
-            
+            {/* <Link href="/#cabs" className="hover:text-primary transition-colors font-bold">SIVA Cabs</Link> */}
+          </div>
+
+          <div className="flex items-center">
             {user ? (
               <div className="relative">
-                <button 
+                <button
                   onClick={() => setShowDropdown(!showDropdown)}
-                  className="flex items-center justify-center w-10 h-10 rounded-full bg-purple-100 text-purple-600 hover:bg-purple-200 transition-colors"
+                  className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors"
                 >
-                  <User className="w-5 h-5" />
+                  <User className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
-                
+
                 {showDropdown && (
                   <div className="absolute right-0 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
                     <div className="px-4 py-2 border-b border-gray-100 mb-2">
                       <p className="text-xs text-gray-500">Logged in as</p>
                       <p className="text-sm font-bold truncate">{user.phone}</p>
                       {user.role === 'admin' && (
-                        <span className="inline-block mt-1 bg-purple-100 text-purple-700 text-xs px-2 py-0.5 rounded-full font-bold">Admin</span>
+                        <span className="inline-block mt-1 bg-blue-100 text-blue-700 text-xs px-2 py-0.5 rounded-full font-bold">Admin</span>
                       )}
                     </div>
-                    
+
                     {user.role === 'admin' && (
-                      <Link 
-                        href="/admin" 
-                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors"
+                      <Link
+                        href="/admin"
+                        className="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                         onClick={() => setShowDropdown(false)}
                       >
                         <LayoutDashboard className="w-4 h-4" />
                         Admin Dashboard
                       </Link>
                     )}
-                    
-                    <button 
+
+                    <button
                       onClick={handleLogout}
                       className="w-full flex items-center gap-2 px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors text-left"
                     >
@@ -81,22 +92,13 @@ export default function Navbar() {
                 )}
               </div>
             ) : (
-              <Link 
+              <Link
                 href="/login"
-                className="px-5 py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold hover:from-secondary hover:to-primary transition-all shadow-md"
+                className="px-3 py-1.5 sm:px-5 sm:py-2.5 rounded-lg bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm sm:text-base hover:from-secondary hover:to-primary transition-all shadow-md"
               >
                 Login
               </Link>
             )}
-          </div>
-
-          <div className="flex items-center md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-black hover:text-primary focus:outline-none"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
           </div>
         </div>
       </div>
@@ -108,14 +110,14 @@ export default function Navbar() {
             <Link href="/services" className="block px-3 py-2 rounded-md text-base font-bold hover:text-primary hover:bg-gray-50" onClick={() => setIsOpen(false)}>Services</Link>
             <Link href="/#certificates" className="block px-3 py-2 rounded-md text-base font-bold hover:text-primary hover:bg-gray-50" onClick={() => setIsOpen(false)}>Certificates</Link>
             <Link href="/#cabs" className="block px-3 py-2 rounded-md text-base font-bold hover:text-primary hover:bg-gray-50" onClick={() => setIsOpen(false)}>SIVA Cabs</Link>
-            
+
             {user ? (
               <div className="border-t border-gray-100 pt-2 mt-2">
                 <div className="px-3 py-2">
                   <p className="text-xs text-gray-500">Logged in as {user.phone}</p>
                 </div>
                 {user.role === 'admin' && (
-                  <Link href="/admin" className="block px-3 py-2 rounded-md text-base font-bold text-purple-600 hover:bg-purple-50" onClick={() => setIsOpen(false)}>
+                  <Link href="/admin" className="block px-3 py-2 rounded-md text-base font-bold text-blue-600 hover:bg-blue-50" onClick={() => setIsOpen(false)}>
                     Admin Dashboard
                   </Link>
                 )}
@@ -124,7 +126,7 @@ export default function Navbar() {
                 </button>
               </div>
             ) : (
-              <Link 
+              <Link
                 href="/login"
                 onClick={() => setIsOpen(false)}
                 className="w-full text-left block px-3 py-2 rounded-md text-base font-bold text-primary hover:bg-gray-50"
