@@ -63,8 +63,8 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-12 flex items-center justify-center md:justify-start gap-3 text-sm md:text-base font-medium text-white/90">
-              <Award className="w-6 h-6" />
+            <div className="mt-12 inline-flex items-center justify-center md:justify-start gap-2 text-sm md:text-base font-semibold text-yellow-400 rounded-full px-5 py-2 shadow-sm">
+              <Award className="w-5 h-5 text-yellow-400" />
               <span>Accredited and Trusted Partner</span>
             </div>
           </div>
@@ -199,7 +199,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <Link href="/services" className="inline-block px-8 py-2 border border-purple-600 text-purple-600 rounded-lg text-sm font-medium hover:bg-purple-50 transition-colors">
+              <Link href="/services" className="inline-block px-8 py-2 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/10 transition-colors">
                 View all Services
               </Link>
             </div>
@@ -311,7 +311,7 @@ export default function Home() {
             </div>
 
             <div className="text-center">
-              <Link href="/services?category=Bank Service" className="inline-block px-8 py-2 border border-purple-600 text-purple-600 rounded-lg text-sm font-medium hover:bg-purple-50 transition-colors">
+              <Link href="/services?category=Bank Service" className="inline-block px-8 py-2 border border-primary text-primary rounded-lg text-sm font-bold hover:bg-primary/10 transition-colors">
                 View all Services
               </Link>
             </div>

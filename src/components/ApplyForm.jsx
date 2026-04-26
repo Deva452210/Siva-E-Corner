@@ -165,7 +165,7 @@ export default function ApplyForm({ service }) {
         </p>
         <button 
           onClick={() => window.location.href = "/services"}
-          className="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-md"
+          className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-colors shadow-md"
         >
           Return to Services
         </button>
@@ -179,7 +179,7 @@ export default function ApplyForm({ service }) {
         <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
         
         <div className="flex items-center gap-3 mb-8">
-          <div className="p-3 bg-purple-100 text-purple-600 rounded-xl">
+          <div className="p-3 bg-primary/10 text-primary rounded-xl">
             <CreditCard className="w-6 h-6" />
           </div>
           <div>
@@ -203,7 +203,7 @@ export default function ApplyForm({ service }) {
           </div>
           <div className="border-t border-gray-200 pt-4 flex justify-between items-center">
             <span className="text-lg font-bold text-gray-900">Total Amount</span>
-            <span className="text-2xl font-black text-purple-600">₹{totalAmount.toFixed(2)}</span>
+            <span className="text-2xl font-black text-primary">₹{totalAmount.toFixed(2)}</span>
           </div>
         </div>
 
@@ -215,7 +215,7 @@ export default function ApplyForm({ service }) {
         <button 
           onClick={handlePayment}
           disabled={isSubmitting}
-          className={`w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? 'Loading...' : `Pay ₹${totalAmount.toFixed(2)} Securely`}
         </button>
@@ -232,23 +232,23 @@ export default function ApplyForm({ service }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700">First Name <span className="text-red-500">*</span></label>
-            <input required type="text" id="firstName" name="firstName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all" placeholder="Enter your first name" />
+            <input required type="text" id="firstName" name="firstName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your first name" />
           </div>
           <div className="space-y-2">
             <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700">Last Name <span className="text-red-500">*</span></label>
-            <input required type="text" id="lastName" name="lastName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all" placeholder="Enter your last name" />
+            <input required type="text" id="lastName" name="lastName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your last name" />
           </div>
           <div className="space-y-2">
             <label htmlFor="dob" className="block text-sm font-semibold text-gray-700">Date of Birth <span className="text-red-500">*</span></label>
-            <input required type="date" id="dob" name="dob" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all" />
+            <input required type="date" id="dob" name="dob" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" />
           </div>
           <div className="space-y-2">
             <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">Phone Number <span className="text-red-500">*</span></label>
-            <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all" placeholder="+91 00000 00000" />
+            <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="+91 00000 00000" />
           </div>
           <div className="space-y-2 md:col-span-2">
             <label htmlFor="address" className="block text-sm font-semibold text-gray-700">Full Address <span className="text-red-500">*</span></label>
-            <textarea required id="address" name="address" rows="3" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none transition-all" placeholder="Enter your complete residential address..."></textarea>
+            <textarea required id="address" name="address" rows="3" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your complete residential address..."></textarea>
           </div>
         </div>
       </section>
@@ -276,7 +276,7 @@ export default function ApplyForm({ service }) {
                   accept=".jpg,.jpeg,.png,.pdf"
                   onChange={(e) => handleFileChange(e, doc)}
                 />
-                <div className={`px-6 py-2.5 rounded-lg border-2 border-dashed flex items-center justify-center gap-2 transition-colors ${uploadedFiles[doc] ? 'bg-green-50 border-green-400 text-green-700' : 'bg-white border-purple-300 text-purple-600 hover:bg-purple-50'}`}>
+                <div className={`px-6 py-2.5 rounded-lg border-2 border-dashed flex items-center justify-center gap-2 transition-colors ${uploadedFiles[doc] ? 'bg-green-50 border-green-400 text-green-700' : 'bg-white border-primary text-primary hover:bg-primary/5'}`}>
                   {uploadedFiles[doc] ? (
                     <>
                       <CheckCircle2 className="w-4 h-4" />
@@ -304,7 +304,7 @@ export default function ApplyForm({ service }) {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className={`w-full md:w-auto md:min-w-[200px] bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`w-full md:w-auto md:min-w-[200px] bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? (
             <>

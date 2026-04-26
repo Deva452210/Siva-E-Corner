@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import useSWR from "swr";
 import { useSearchParams } from "next/navigation";
+import { Search } from "lucide-react";
 
 const fetcher = (url) => fetch(url).then((res) => res.json());
 
@@ -18,6 +19,7 @@ export default function ServicesTabs({ initialServices }) {
     }
     return "E-Service";
   });
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const category = searchParams.get("category");
@@ -33,25 +35,46 @@ export default function ServicesTabs({ initialServices }) {
   });
 
   const currentServices = services || initialServices;
-  const filteredServices = currentServices.filter(service => service.category === activeTab);
+  const filteredServices = currentServices.filter(service => {
+    const matchesCategory = service.category === activeTab;
+    const matchesSearch = service.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          (service.titleUpper && service.titleUpper.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <>
-      {/* Tabs */}
-      <div className="flex flex-wrap gap-3 mb-8">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveTab(category)}
-            className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-              activeTab === category
-                ? "bg-purple-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+        {/* Tabs */}
+        <div className="flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
+                activeTab === category
+                  ? "bg-primary text-white"
+                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* Search */}
+        <div className="relative w-full md:w-72">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <Search className="h-5 w-5 text-gray-400" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search services..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="block w-full pl-10 pr-3 py-2 border border-gray-200 rounded-lg leading-5 bg-white placeholder-gray-500 focus:outline-none sm:text-sm transition-shadow text-black"
+          />
+        </div>
       </div>
 
       {/* Service Cards Grid */}
@@ -73,7 +96,7 @@ export default function ServicesTabs({ initialServices }) {
             
             {/* Bottom Text area */}
             <div className="bg-gray-50 p-4 flex flex-col flex-grow">
-              <h4 className="font-bold text-gray-800 text-[15px] mb-2 group-hover:text-purple-600 transition-colors">
+              <h4 className="font-bold text-gray-800 text-[15px] mb-2 group-hover:text-primary transition-colors">
                 {service.title}
               </h4>
               <p className="text-xs text-gray-500 font-semibold mt-auto">

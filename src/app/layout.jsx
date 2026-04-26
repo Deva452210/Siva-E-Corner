@@ -9,6 +9,28 @@ const inter = Inter({
 export const metadata = {
   title: "Siva E-Corner",
   description: "Essential e-services for government-related documents, banking services, and seamless travel solutions.",
+  icons: {
+    icon: "/Siva-Logo.svg",
+  },
+  openGraph: {
+    title: "Siva E-Corner",
+    description: "Essential e-services for government-related documents, banking services, and seamless travel solutions.",
+    images: [
+      {
+        url: "/siva-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "Siva E-Corner Preview",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Siva E-Corner",
+    description: "Essential e-services for government-related documents, banking services, and seamless travel solutions.",
+    images: ["/siva-preview.png"],
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -21,41 +21,39 @@ export default function ServiceDetailsClient({ initialService, initialSimilarSer
 
   return (
     <>
-      {/* Top Purple Banner Section */}
-      <section className="bg-purple-800 text-white py-12 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900 to-purple-700 opacity-90 z-0"></div>
-        
+      {/* Top Banner Section */}
+      <section className="bg-primary-gradient text-white py-12 px-4 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-12 pt-8">
           {/* Left Column - Details */}
           <div className="lg:col-span-2">
-            <Link 
-              href="/services" 
+            <Link
+              href="/services"
               className="inline-flex items-center gap-2 border border-white/40 text-white px-4 py-1.5 rounded-full text-sm font-medium hover:bg-white/10 transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
               Back
             </Link>
-            
+
             <div>
               <span className="inline-block border border-white/50 text-white/90 px-4 py-1 rounded-full text-sm font-medium mb-6">
                 {service.category}
               </span>
-              
+
               <h1 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
                 {service.title}
               </h1>
-              
+
               <div className="mb-8">
                 <h3 className="text-xl font-bold mb-2 text-white/90">Description:</h3>
                 <p className="text-white/80 leading-relaxed max-w-3xl">
                   {service.description}
                 </p>
               </div>
-              
+
               <div className="text-2xl font-bold mb-10 flex items-center gap-3">
                 Amount to pay: <span className="text-yellow-400">{service.amount}</span>
               </div>
-              
+
               {/* Info Bar */}
               <div className="bg-[#240b36]/40 backdrop-blur-md border border-white/10 rounded-xl p-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
                 <div>
@@ -81,23 +79,23 @@ export default function ServiceDetailsClient({ initialService, initialSimilarSer
           {/* Right Column - Sidebar */}
           <div className="lg:col-span-1">
             <div className="bg-white text-black rounded-xl shadow-2xl p-8 relative top-4 md:top-12 border border-gray-100">
-              <div className="absolute -top-3 right-6 bg-pink-500 text-white text-xs font-bold px-3 py-1 rounded-sm shadow-sm">
+              <div className="absolute -top-3 right-6 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-sm shadow-sm">
                 Essentials Service
               </div>
-              
+
               <h3 className="text-xl font-extrabold mb-6 text-gray-900 border-b pb-4">
                 Documents Required:
               </h3>
-              
+
               <ol className="list-decimal pl-5 space-y-3 text-sm font-semibold text-gray-800">
                 {service.documentsRequired?.map((doc, index) => (
                   <li key={index} className="pl-1 leading-snug">{doc}</li>
                 ))}
               </ol>
-              
-              <Link 
+
+              <Link
                 href={`/services/${service.id}/apply`}
-                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3.5 rounded-lg mt-8 transition-colors shadow-md block text-center"
+                className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-lg mt-8 transition-colors shadow-md block text-center"
               >
                 Apply Now
               </Link>
@@ -113,12 +111,12 @@ export default function ServiceDetailsClient({ initialService, initialSimilarSer
             <div className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Similar - Services</h2>
             </div>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
               {similarServices.map((simService) => (
-                <Link 
+                <Link
                   href={`/services/${simService.id}`}
-                  key={simService.id} 
+                  key={simService.id}
                   className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 flex flex-col group cursor-pointer"
                 >
                   {/* Top Image/Gradient area */}
@@ -128,10 +126,10 @@ export default function ServiceDetailsClient({ initialService, initialSimilarSer
                     </h3>
                     <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                   </div>
-                  
+
                   {/* Bottom Text area */}
                   <div className="p-4 flex flex-col flex-grow">
-                    <h4 className="font-bold text-gray-800 text-[15px] mb-2 group-hover:text-purple-600 transition-colors">
+                    <h4 className="font-bold text-gray-800 text-[15px] mb-2 group-hover:text-primary transition-colors">
                       {simService.title}
                     </h4>
                     <p className="text-xs text-gray-500 font-semibold mt-auto">

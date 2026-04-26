@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, User, LogOut, LayoutDashboard } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -39,8 +40,8 @@ export default function Navbar() {
 
           <div className="flex-1 flex justify-center md:justify-start">
             <Link href="/" className="flex-shrink-0 flex items-center gap-1 sm:gap-2">
-              <span className="font-bold text-xl sm:text-2xl tracking-wider text-primary">SIVA</span>
-              <span className="font-semibold text-lg sm:text-xl text-black">E-Corner</span>
+              <Image src="/Siva-Logo.svg" alt="Siva E-Corner Logo" width={60} height={60} className="w-12 h-12 sm:w-14 sm:h-14" priority />
+              <span className="font-bold text-md sm:text-lg   text-primary uppercase">SIVA E-CORNER</span>
             </Link>
           </div>
 
