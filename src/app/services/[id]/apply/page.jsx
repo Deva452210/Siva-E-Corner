@@ -22,19 +22,19 @@ export default async function ApplyPage({ params }) {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-gray-50 text-black flex flex-col pt-24 pb-20">
-        <div className="max-w-4xl mx-auto px-4 w-full">
+      <main className="min-h-screen bg-white md:bg-gray-50 text-black flex flex-col pt-24 pb-20">
+        <div className="max-w-4xl mx-auto px-0 md:px-4 w-full">
           <Link 
             href={`/services/${service.id}`} 
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-purple-600 transition-colors mb-8 font-medium"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors mb-6 md:mb-8 font-medium px-5 md:px-0"
           >
             <ArrowLeft className="w-4 h-4" />
             Back to Service Details
           </Link>
           
-          <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+          <div className="bg-white rounded-none md:rounded-2xl shadow-none md:shadow-xl overflow-hidden border-none md:border md:border-gray-100">
             {/* Header */}
-            <div className={`p-8 md:p-10 ${service.bgClass || 'bg-purple-800'} text-white`}>
+            <div className={`p-6 md:p-10 ${service.bgClass || 'bg-primary-gradient'} text-white`}>
               <span className="inline-block bg-black/20 px-3 py-1 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
                 Application Form
               </span>
@@ -47,7 +47,7 @@ export default async function ApplyPage({ params }) {
             </div>
             
             {/* Form Component */}
-            <div className="p-8 md:p-10">
+            <div className="p-5 md:p-10">
               <ApplyForm service={service} />
             </div>
           </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -13,6 +13,11 @@ export default function LoginPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
+  // Scroll to top when toggling login/signup
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [isLogin]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

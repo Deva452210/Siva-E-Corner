@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UploadCloud, CheckCircle2, CreditCard, ShieldCheck } from "lucide-react";
 import Script from "next/script";
 
@@ -8,6 +8,11 @@ export default function ApplyForm({ service }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [applicationId, setApplicationId] = useState("");
   
+  // Scroll to top when step changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [step]);
+
   // Track files for UI feedback
   const [uploadedFiles, setUploadedFiles] = useState({});
 
@@ -175,39 +180,39 @@ export default function ApplyForm({ service }) {
 
   if (step === 2) {
     return (
-      <div className="max-w-md mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+      <div className="max-w-md mx-auto bg-white rounded-none md:rounded-2xl shadow-none md:shadow-sm border-none md:border md:border-gray-100 p-0 md:p-8">
         <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="lazyOnload" />
         
-        <div className="flex items-center gap-3 mb-8">
-          <div className="p-3 bg-primary/10 text-primary rounded-xl">
-            <CreditCard className="w-6 h-6" />
+        <div className="flex items-center gap-3 mb-6 md:mb-8">
+          <div className="p-2 md:p-3 bg-primary/10 text-primary rounded-xl">
+            <CreditCard className="w-5 h-5 md:w-6 md:h-6" />
           </div>
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Payment Summary</h2>
-            <p className="text-gray-500 text-sm">Review fees before payment</p>
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900">Payment Summary</h2>
+            <p className="text-gray-500 text-xs md:text-sm">Review fees before payment</p>
           </div>
         </div>
 
-        <div className="space-y-4 mb-8">
-          <div className="flex justify-between items-center text-gray-700">
+        <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+          <div className="flex justify-between items-center text-gray-700 text-sm md:text-base">
             <span>Application Fee ({service.title})</span>
             <span className="font-semibold">₹{baseFee.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between items-center text-gray-700">
+          <div className="flex justify-between items-center text-gray-700 text-sm md:text-base">
             <span>Platform Fee (2%)</span>
             <span className="font-semibold">₹{platformFee.toFixed(2)}</span>
           </div>
-          <div className="flex justify-between items-center text-gray-700">
+          <div className="flex justify-between items-center text-gray-700 text-sm md:text-base">
             <span>GST on Platform Fee (18%)</span>
             <span className="font-semibold">₹{gst.toFixed(2)}</span>
           </div>
           <div className="border-t border-gray-200 pt-4 flex justify-between items-center">
-            <span className="text-lg font-bold text-gray-900">Total Amount</span>
-            <span className="text-2xl font-black text-primary">₹{totalAmount.toFixed(2)}</span>
+            <span className="text-base md:text-lg font-bold text-gray-900">Total Amount</span>
+            <span className="text-xl md:text-2xl font-black text-primary">₹{totalAmount.toFixed(2)}</span>
           </div>
         </div>
 
-        <div className="bg-blue-50 text-blue-700 p-4 rounded-xl flex gap-3 text-sm mb-8">
+        <div className="bg-blue-50 text-blue-700 p-3 md:p-4 rounded-xl flex gap-3 text-xs md:text-sm mb-6 md:mb-8">
           <ShieldCheck className="w-5 h-5 flex-shrink-0" />
           <p>Your documents are currently uploading in the background securely. Please proceed with payment.</p>
         </div>
@@ -215,7 +220,7 @@ export default function ApplyForm({ service }) {
         <button 
           onClick={handlePayment}
           disabled={isSubmitting}
-          className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-6 md:py-4 md:px-8 rounded-xl transition-all shadow-lg text-base md:text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? 'Loading...' : `Pay ₹${totalAmount.toFixed(2)} Securely`}
         </button>
@@ -224,43 +229,43 @@ export default function ApplyForm({ service }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-10">
+    <form onSubmit={handleSubmit} className="space-y-8 md:space-y-10">
       
       {/* Personal Details Section */}
       <section>
-        <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-2">1. Personal Details</h3>
+        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 md:mb-6 border-b pb-2">1. Personal Details</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">
             <label htmlFor="firstName" className="block text-sm font-semibold text-gray-700">First Name <span className="text-red-500">*</span></label>
-            <input required type="text" id="firstName" name="firstName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your first name" />
+            <input required type="text" id="firstName" name="firstName" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm md:text-base" placeholder="Enter your first name" />
           </div>
           <div className="space-y-2">
             <label htmlFor="lastName" className="block text-sm font-semibold text-gray-700">Last Name <span className="text-red-500">*</span></label>
-            <input required type="text" id="lastName" name="lastName" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your last name" />
+            <input required type="text" id="lastName" name="lastName" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm md:text-base" placeholder="Enter your last name" />
           </div>
           <div className="space-y-2">
             <label htmlFor="dob" className="block text-sm font-semibold text-gray-700">Date of Birth <span className="text-red-500">*</span></label>
-            <input required type="date" id="dob" name="dob" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" />
+            <input required type="date" id="dob" name="dob" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm md:text-base" />
           </div>
           <div className="space-y-2">
             <label htmlFor="phone" className="block text-sm font-semibold text-gray-700">Phone Number <span className="text-red-500">*</span></label>
-            <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="+91 00000 00000" />
+            <input required type="tel" id="phone" name="phone" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm md:text-base" placeholder="+91 00000 00000" />
           </div>
           <div className="space-y-2 md:col-span-2">
             <label htmlFor="address" className="block text-sm font-semibold text-gray-700">Full Address <span className="text-red-500">*</span></label>
-            <textarea required id="address" name="address" rows="3" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="Enter your complete residential address..."></textarea>
+            <textarea required id="address" name="address" rows="3" className="w-full px-3 py-2.5 md:px-4 md:py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all text-sm md:text-base" placeholder="Enter your complete residential address..."></textarea>
           </div>
         </div>
       </section>
 
       {/* Document Uploads Section */}
       <section>
-        <h3 className="text-xl font-bold text-gray-900 mb-6 border-b pb-2">2. Required Documents</h3>
-        <p className="text-sm text-gray-500 mb-6">Please upload clear, legible copies of the following documents. Max size: 5MB per file.</p>
+        <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-4 md:mb-6 border-b pb-2">2. Required Documents</h3>
+        <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-6">Please upload clear, legible copies of the following documents. Max size: 5MB per file.</p>
         
         <div className="space-y-5">
           {service.documentsRequired?.map((doc, index) => (
-            <div key={index} className="bg-gray-50 border border-gray-200 rounded-xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div key={index} className="bg-gray-50 border border-gray-200 rounded-xl p-4 md:p-5 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4">
               <div className="flex-1">
                 <h4 className="font-bold text-gray-800">{doc} <span className="text-red-500">*</span></h4>
                 <p className="text-xs text-gray-500 mt-1">Accepted formats: JPG, PNG, PDF</p>
@@ -276,7 +281,7 @@ export default function ApplyForm({ service }) {
                   accept=".jpg,.jpeg,.png,.pdf"
                   onChange={(e) => handleFileChange(e, doc)}
                 />
-                <div className={`px-6 py-2.5 rounded-lg border-2 border-dashed flex items-center justify-center gap-2 transition-colors ${uploadedFiles[doc] ? 'bg-green-50 border-green-400 text-green-700' : 'bg-white border-primary text-primary hover:bg-primary/5'}`}>
+                <div className={`px-4 py-2 md:px-6 md:py-2.5 rounded-lg border-2 border-dashed flex items-center justify-center gap-2 transition-colors ${uploadedFiles[doc] ? 'bg-green-50 border-green-400 text-green-700' : 'bg-white border-primary text-primary hover:bg-primary/5'}`}>
                   {uploadedFiles[doc] ? (
                     <>
                       <CheckCircle2 className="w-4 h-4" />
@@ -304,7 +309,7 @@ export default function ApplyForm({ service }) {
         <button 
           type="submit" 
           disabled={isSubmitting}
-          className={`w-full md:w-auto md:min-w-[200px] bg-primary hover:bg-primary/90 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`w-full md:w-auto md:min-w-[200px] bg-primary hover:bg-primary/90 text-white font-bold py-3.5 px-6 md:py-4 md:px-8 rounded-xl transition-all shadow-lg text-base md:text-lg flex items-center justify-center gap-2 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           {isSubmitting ? (
             <>
